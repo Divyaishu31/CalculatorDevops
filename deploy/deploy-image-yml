@@ -1,8 +1,0 @@
----
-- name: Pull docker image of scientificcalculator
-  hosts: all
-  tasks:
-    - name: Pull devcalc image
-      docker_image:
-        name: divyaishu/devcalc
-        source: pull
