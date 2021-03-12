@@ -1,7 +1,9 @@
 package calculator;
 import java.util.*;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 public class App
-{
+{	private static final Logger logger = LogManager.getLogger(App.class);
     public static void main(String args[])
     {
         int choice, flag=0;
@@ -9,7 +11,7 @@ public class App
         Scanner scan = new Scanner(System.in);
         System.out.println("Calculator");
         do {
-            System.out.println("1 for Addition\n2 for Subtraction\n3 for Multiplication\n4 for Division\n");
+            System.out.println("1 for Natuaral log\n2 for Subtraction\n3 for Multiplication\n4 for Division\n");
             System.out.print("Enter your choice: ");
             choice = scan.nextInt();
             if (choice > 4 || choice <1) {
@@ -39,8 +41,9 @@ public class App
             System.out.println("\n");
             }while(flag==0);
     }
-    
+    // log files , function update : log base e ,pom.sml add log file dependency, sqrt,power,factorial , write logs based on edge cases,update your test cases accordingly, el ka stack 
     static double Add(double a, double b) {
+    	logger.info("adding numbers" + a + "and" + b);
     	return a + b;
     }
     static double Subtract(double a, double b) {
