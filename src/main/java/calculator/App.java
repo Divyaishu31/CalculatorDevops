@@ -1,78 +1,175 @@
 package calculator;
 import java.util.*;
+//line added
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import java.Lang.Math;
-public class App
-{	private static final Logger logger = LogManager.getLogger(App.class);
-    public static void main(String args[])
-    {
-        int choice, flag=0;
-        double num1,num2;int a;
+//line added
+public class App {
+    //line added
+    private static final Logger logger = LogManager.getLogger(App.class);
+
+    //line added
+    //
+    public static void main(String args[]) {
+        int n;
+        //double num1,num2;
         Scanner scan = new Scanner(System.in);
-        System.out.println("Calculator");
-        do {
-            System.out.println("1 for Natuaral log\n2 for Square root\n3 for Power\n4 for Factorial\n");
+        System.out.println("=========================================================================================");
+        System.out.println("                                 Scientific Calculator                                   ");
+        System.out.println("=========================================================================================");
+        while (true) {
+            System.out.println(" ");
+            System.out.println(" ");
+            System.out.println("Enter 1,for Square Root\nEnter 2,for Factorial\nEnter 3,for Log base e\nEnter 4,for Power Function\nEnter 5,for EXit");
+            System.out.println(" ");
             System.out.print("Enter your choice: ");
-            choice = scan.nextInt();
+            n = scan.nextInt();
+
+
+            if (n == 1) {
+                System.out.println("Enter number for Square Root:");
+
+                double a = scan.nextDouble();
+                double res = Sqeroot(a);
+                System.out.println("The Square root of " + a + " is " + res);
+
+            } else if (n == 2) {
+                System.out.println("Enter number for Factorial:");
+
+                Long b = scan.nextLong();
+                double res = Fact(b);
+                if(res>0)
+                {
+                    System.out.println("The Factorial of " + b + " is " + res);
+                }
+
+            } else if (n == 3) {
+                System.out.println("Enter number for Log:");
+
+                double a = scan.nextDouble();
+                double res = Loge(a);
+                System.out.println("The Log of " + a + " is " + res);
+
+
+            } else if (n == 4) {
+                System.out.println("Enter first number :");
+
+                double a = scan.nextDouble();
+                System.out.println("Enter second number :");
+
+                double b = scan.nextDouble();
+
+                double res = Powe(a,b);
+                System.out.println("Power of " + a + "and "+b+" is " + res);
+            } else if (n == 5) {
+                System.out.println("Ending the Program");
+                logger.info("Entered 5 to exit.");
+                return ;
+
+            } else {
+                System.out.println("PLease Enter Valid Option");
+            }
+            /*
             if (choice > 4 || choice <1) {
                 flag = 1;
-                System.out.println("Invalid choice, exiting\n");
+                System.out.println("Incorrect Option Choosed, Ending the Program\n");
             }
             else if (flag != 1){
-            	 	
+            	 System.out.println("Enter two numbers");
                  System.out.print("Enter number 1: ");
-                 
+                 num1 = scan.nextDouble();
                  System.out.print("Enter number 2: ");
                  num2 = scan.nextDouble();
                  
                  switch(choice) {
-                 case 1: 	System.out.println("Enter a number");
-                 		num1 = scan.nextDouble();
-                 		System.out.println("Natural Log of "+num1+" is" + Log(num1));
+                 case 1: System.out.println(num1+" + "+num2+" = "+Add(num1, num2));
                  		break;
-                 case 2: 	System.out.println("Enter a number");
-                 		num1 = scan.nextDouble();
-                 		System.out.println("Square root of "+num1+" is" + Sqrt(num1));
+                 case 2: System.out.println(num1+" - "+num2+" = "+Subtract(num1, num2));
                  		break;
-                 case 3: 	System.out.println("Enter 2 numbers");
-                 		System.out.println("Enter number 1");
-                 		num1 = scan.nextDouble();
-                 		System.out.println("Enter number 2");
-                 		num2 = scan.nextDouble();
-                 		System.out.println(num1+" to the power of  "+num2+" = "+Power(num1, num2));
+                 case 3: System.out.println(num1+" * "+num2+" = "+Multiply(num1, num2));
                  		break;
-                 case 4: 	System.out.println("Enter a number");
-                 		a = scan.nextInt();
-				 System.out.println("Factorial of " + a + " = " + Factorial(a));
-						break;
+                 case 4: System.out.println(num1+" / "+num2+" = "+Divide(num1, num2));
+                		break;
                 default: System.out.println("Exiting, Bye");
                 flag=1;
                 }
             }
             System.out.println("\n");
-            }while(flag==0);
+            }while(flag==0);*/
+        }
+
     }
-    // log files , function update : log base e ,pom.sml add log file dependency, sqrt,power,factorial , write logs based on edge cases,update your test cases accordingly, el ka stack 
-    static double Log(double a) {
-    	logger.info("Taking natural log of " + a );
-    	return Math.log(a);
+
+    //logger.error("print an error");
+    //logger.info("print some info");
+    /*static double (double a) {
+    logger.info("Adding two numbers"+a +"and");
+
+    	return a ;
     }
-    static double Sqrt(double a) {
-    	logger.info("Finding sqrt of " + a);
-    	return Math.sqrt(a);
+    static double Subtract(double a, double b) {
+    	return a - b;
     }
-    static double Power(double a, double b) {
-    	logger.info("Calculating " + num1+" to the power of  "+num2));
-    	return Math.pow(a,b);
+    static double Multiply(double a, double b) {
+    	return a * b;
     }
-    static long Factorial(int a) {
-    logger.info("Calculating " + a +"'s factorial "));
-    	long ans=1;
-	    	while(a>0)
-	    	{
-	    	ans = ans*a;
-	    	a--;
-	   	 }
-   	 return ans;
+    static double Divide(double a, double b) {
+    	if (b == 0) {
+    		throw new IllegalArgumentException("Divisor cannot be zero, Exiting");
+    	}
+    	else return a / b;
+    }
 }
+*/
+    static double Sqeroot(double a) {
+
+        double res = Math.sqrt(a);
+        logger.info("Square root of " + a + " is " + res);
+
+        return res;
+    }
+
+    static long Fact(long b) {
+
+        //double res = Math.sqrt(a);
+        long res=1;
+        if(b<0) {
+                System.out.println("Enter number >= 0");
+            logger.info("Number entered for Square root is negative.");
+            return -1;
+                }
+        else {
+            for (long i = b; i > 0; i--) {
+                res = res * i;
+            }
+            logger.info("Factorial of " + b + " is " + res);
+            return res;
+        }
+
+
+
+        }
+
+
+
+    static double Loge(double a) {
+
+        double res = Math.log(a);
+        logger.info("Log of " + a + "is" + res);
+
+        return res;
+    }
+    static double Powe(double a,double b) {
+
+        double res = Math.pow(a,b);
+        logger.info("Power of " + a + "and "+b+" is " + res);
+
+        return res;
+    }
+
+
+
+
+    }
+
+

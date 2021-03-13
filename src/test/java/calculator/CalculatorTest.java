@@ -14,43 +14,42 @@ public class CalculatorTest {
 	    }
 
 		@Test
-	    public void testLog() {
-	        double a = 15.0;
-	       
-	        double expectedResult = 2.7080502011;
-	        double result = calculator.Log(a);
+	    public void testSqeroot() {
+	        double a = 4.0;
+
+	        double expectedResult = 2.0;
+	        double result = calculator.Sqeroot(a);
 	        Assert.assertEquals(expectedResult, result, 0);
 	    }
 		
 		@Test
-		public void testSqrt() {
-			double a = 16;
-	        
-	        double expectedResult = 4;
-	        double result = calculator.Sqrt(a);
+		public void testFact() {
+			long a = 10;
+
+	        long expectedResult = 3628800;
+	        double result = calculator.Fact(a);
 	        Assert.assertEquals(expectedResult, result, 0);
 		}
+
+	@Test
+	public void testLoge() {
+		double a = 1;
+
+		double expectedResult = 0.0;
+		double result = calculator.Loge(a);
+		Assert.assertEquals(expectedResult, result, 0.0001);
+	}
 		
 		@Test
-		public void testPower() {
-			double a = 2;
+		public void testPowe() {
+			double a = 7;
 	        double b = 3;
-	        double expectedResult = 8;
-	        double result = calculator.Power(a, b);
+	        double expectedResult = 343;
+	        double result = calculator.Powe(a, b);
 	        Assert.assertEquals(expectedResult, result, 0);
 		}
 		
-		@Test
-		public void testFactorial() {
-			int a = 5;
-	        long expectedResult = 120;
-	       
-	        double result = calculator.Factorial(a);
-	        Assert.assertEquals(expectedResult, result, 0);
-		}
-		
-		// negative number sqrt,log,factorial exception
-		
+
 		
 		/*@Test(expected = IllegalArgumentException.class)
 	    public void testDivideByZero() {
