@@ -8,9 +8,11 @@ public class App {
     //line added
     private static final Logger logger = LogManager.getLogger(App.class);
 
+    //line added
+    //
     public static void main(String args[]) {
         int n;
-        
+        //double num1,num2;
         Scanner scan = new Scanner(System.in);
         System.out.println("=========================================================================================");
         System.out.println("                                 Scientific Calculator                                   ");
@@ -36,8 +38,7 @@ public class App {
 
                 Long b = scan.nextLong();
                 double res = Fact(b);
-                if(res>0)
-                {
+                if (res > 0) {
                     System.out.println("The Factorial of " + b + " is " + res);
                 }
 
@@ -57,20 +58,28 @@ public class App {
 
                 double b = scan.nextDouble();
 
-                double res = Powe(a,b);
-                System.out.println("Power of " + a + "and "+b+" is " + res);
+                double res = Powe(a, b);
+                System.out.println("Power of " + a + "and " + b + " is " + res);
             } else if (n == 5) {
                 System.out.println("Ending the Program");
                 logger.info("Entered 5 to exit.");
-                return ;
+                return;
 
             } else {
                 System.out.println("PLease Enter Valid Option");
             }
-           
+            /*
+            break;
+                default: System.out.println("Exiting, Bye");
+                flag=1;
+                }
+            }
+            System.out.println("\n");
+            }while(flag==0);*/
         }
 
     }
+
 
     static double Sqeroot(double a) {
 
@@ -83,35 +92,38 @@ public class App {
     static long Fact(long b) {
 
         //double res = Math.sqrt(a);
-        long res=1;
-        if(b<0) {
-                System.out.println("Enter number >= 0");
+        long res = 1;
+        if (b < 0) {
+            System.out.println("Enter number >= 0");
             logger.info("Number entered for Square root is negative.");
             return -1;
-                }
-        else {
+        } else {
             for (long i = b; i > 0; i--) {
                 res = res * i;
             }
             logger.info("Factorial of " + b + " is " + res);
             return res;
         }
-        }
+    }
+
 
     static double Loge(double a) {
+
+        if (a <= 0) {
+            return Double.NEGATIVE_INFINITY;
+        }
 
         double res = Math.log(a);
         logger.info("Log of " + a + "is" + res);
 
         return res;
     }
-    static double Powe(double a,double b) {
 
-        double res = Math.pow(a,b);
-        logger.info("Power of " + a + "and "+b+" is " + res);
+    static double Powe(double a, double b) {
+
+        double res = Math.pow(a, b);
+        logger.info("Power of " + a + "and " + b + " is " + res);
 
         return res;
     }
-    }
-
-
+}
